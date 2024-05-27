@@ -1,0 +1,14 @@
+public class CharIndex {
+    public static void main(String[] args) {
+        String str = "Banana";
+        char searchChar = 'a';
+        
+        int index = str.indexOf(searchChar);
+        
+        if (index != -1) {
+            System.out.println("The index of the first occurrence of '" + searchChar + "' in \"" + str + "\" is: " + index);
+        } else {
+            System.out.println("'" + searchChar + "' is not found in \"" + str + "\"");
+        }
+    }
+}
