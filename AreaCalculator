@@ -1,0 +1,47 @@
+import java.util.Scanner;
+public class AreaCalculator
+{
+public static void main(String args[])
+{
+Scanner scan=new Scanner(System.in);
+int exit;
+System.out.println("choose the type of the object to find area");
+System.out.println("\t1. area of rectangle");
+System.out.println("\t2. area of circle");
+System.out.println("\t3. area of box");
+System.out.println("\t4. exit");
+int option=scan.nextInt();
+if(option==1)
+{
+System.out.println("enter the dimensions of the rectangle");
+int width=scan.nextInt();
+int length=scan.nextInt();
+double area =scan.nextDouble();
+
+System.out.println("area of  rectangle is "+area);
+}
+else if(option==2)
+{
+System.out.println("enter the dimensions of the circle");
+double PI=3.142;
+int radius=scan.nextInt();
+double area =PI+radius+radius;
+System.out.println("area of  circle is "+area);
+}
+else if(option==3)
+{
+System.out.println("enter the dimensions of the box");
+int width=scan.nextInt();
+int length=scan.nextInt();
+int height=scan.nextInt();
+double area =scan.nextDouble();
+
+System.out.println("area of  box is "+area);
+}
+else
+{
+System.out.print("exit");
+
+}
+}
+}
