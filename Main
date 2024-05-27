@@ -1,0 +1,50 @@
+class Speed {
+    private double speed;
+
+    public Speed(double speed) {
+        this.speed = speed;
+    }
+
+    public double getSpeed() {
+        return speed;
+    }
+}
+class Vehicle {
+    private String make;
+    private String model;
+
+    public Vehicle(String make, String model) {
+        this.make = make;
+        this.model = model;
+    }
+    public void display() {
+        System.out.println("Make: " + make);
+        System.out.println("Model: " + model);
+    }
+}
+class Van extends Vehicle {
+    private Speed speed;
+
+    public Van(String make, String model, Speed speed) {
+        super(make, model);
+        this.speed = speed;
+    }
+
+    public void displayDetails() {
+        display(); 
+        System.out.println("Speed: " + speed.getSpeed() + " km/h");
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+       
+        Speed speed = new Speed(80.5);
+
+        
+        Van van = new Van("Ford", "Transit", speed);
+
+        
+        System.out.println("Details of the Van:");
+        van.displayDetails();
+    }
+}
