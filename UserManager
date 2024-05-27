@@ -1,0 +1,56 @@
+public class UserManager {
+    
+    private static final String[][] USER_CREDENTIALS = {
+        {"user1", "password1", "user1@example.com", "password1", "1234567890", "1234"},
+        {"user2", "password2", "user2@example.com", "password2", "0987654321", "4321"},
+        {"user3", "password3", "user3@example.com", "password3", "9876543210", "5678"}
+    };
+
+    
+    public static boolean authenticate(String username, String password) {
+        for (String[] user : USER_CREDENTIALS) {
+            if (user[0].equals(username) && user[1].equals(password)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    
+    public static boolean authenticate(String email, String password, boolean byEmail) {
+        for (String[] user : USER_CREDENTIALS) {
+            if (user[2].equals(email) && user[3].equals(password)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    
+    public static boolean authenticate(long phoneNumber, int pin) {
+        String phone = String.valueOf(phoneNumber);
+        String pinString = String.valueOf(pin);
+        for (String[] user : USER_CREDENTIALS) {
+            if (user[4].equals(phone) && user[5].equals(pinString)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+   
+    public static void main(String[] args) {
+        // Testing different authentication methods
+        System.out.println("Username and password authentication:");
+        System.out.println("User1: " + authenticate("user1", "password1"));
+        System.out.println("User2: " + authenticate("user2", "wrongpassword"));
+
+        System.out.println("\nEmail and password authentication:");
+        System.out.println("User1: " + authenticate("user1@example.com", "password1", true));
+        System.out.println("User2: " + authenticate("user2@example.com", "wrongpassword", true));
+
+        System.out.println("\nPhone number and PIN authentication:");
+        System.out.println("User1: " + authenticate(1234567890, 1234));
+        System.out.println("User2: " + authenticate(9876543210L, 4321));
+    }
+}
